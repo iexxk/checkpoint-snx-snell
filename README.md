@@ -11,7 +11,7 @@
 
 ```bash
 #启动容器
-docker run --name snx-vpn --cap-add=ALL -p 500:500 -v /lib/modules:/lib/modules -d exxk/checkpoint-snx-snell:22.9.19
+docker run --name snx-vpn --cap-add=ALL -p 500:500 -v /lib/modules:/lib/modules -d exxk/checkpoint-snx-snell:22.9.21
 #进入容器
 docker exec -it snx-vpn bash
 #登录vpn，执行下面的命令会提示输入密码，然后提示是否接受，然后输入y
