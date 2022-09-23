@@ -1,12 +1,15 @@
 FROM i386/ubuntu:18.04
 
-ADD snell-server /usr/local/bin
+ADD vpnsetup.sh /
 
 ADD snx_install.sh /
 
-RUN apt-get update -y && apt-get install -y kmod libpam0g:i386 libx11-6:i386 libstdc++6:i386 libstdc++5:i386 net-tools iputils-ping && chmod +x snx_install.sh && ./snx_install.sh && mkdir /etc/snell && cd /usr/local/bin && chmod +x snell-server
+RUN apt-get update -y && apt-get install -y kmod libpam0g:i386 libx11-6:i386 libstdc++6:i386 libstdc++5:i386 net-tools iputils-ping wget vim strongswan && chmod +x vpnsetup.sh && ./vpnsetup.sh
 
-ADD snell-server.conf /etc/snell 
+#ADD ./etc/* /etc/
+#ADD ./bin/* /usr/bin
 
-CMD ["/usr/local/bin/snell-server","-c","/etc/snell/snell-server.conf"]
+#EXPOSE 500/udp 4500/udp
+
+#CMD /usr/bin/start-vpn
 
